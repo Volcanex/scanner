@@ -50,7 +50,6 @@ def parse_cpu_table(html):
     
     return data
 
-savename = 'CPU Names'
-html = tools.grab('https://www.cpubenchmark.net/cpu_list.php', savename)
+html = tools.grab('https://www.cpubenchmark.net/cpu_list.php')
 parsed_data = parse_cpu_table(html)
 print(parsed_data[:10])
