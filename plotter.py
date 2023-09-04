@@ -6,7 +6,8 @@ from forex_python.converter import CurrencyRates
 def plot_distribution(products, search_key):
     # Initialize currency converter
     c = CurrencyRates()
-    USD_TO_GBP_CONVERSION_RATE = c.get_rate('USD', 'GBP')
+    
+    USD_TO_GBP_CONVERSION_RATE = 0.79
     
     def clean_price(price_string):
         # Remove currency symbols and other non-numeric characters

@@ -2,6 +2,8 @@ import json
 import os
 import openai
 
+openai.api_key = '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'
+
 def filter_products_based_on_condition(products, accepted_conditions):
     """
     Filters the products based on the accepted conditions.
@@ -86,27 +88,36 @@ def tag_products(products, tag_data):
 
 def create_prompt(product_names: str, existing_tag_file: str) -> str:
     """Create a prompt for the LLM based on product names and an existing tag file."""
-    prompt = f"""We are trying to categorize products listed on eBay based on their names. The goal is to create or update a tag file in JSON format that associates product tags with keywords found in product names. These tags are essential as they help us determine the price of the product. The tags are used for filtering entries into sub-categories. Use common sense. Products vary and you should decide what are the main tags that affect the price. A tag is a yes or no marker, either it exists or it doesn't. The keywords are used by an algorithm to apply tags to the dataset. There may be multiple keywords that show a product needs a tag e.g 'bundle', 'multiple', 'joblot' would all signify a tag of 'multiple products'. The delimiter is __ The format of the JSON is:
-
-{{
-    "Tag Name": ["keyword1", "keyword2", ...],
-    ...
-}}
-
-Given the following product names:
+    prompt = f"""
+Product names:
 
 {product_names}
+
+Existing tag file? 
 
 {existing_tag_file}
 
 Please suggest appropriate tags and keywords for these products. Categories may need to be added, and keywords may need to be added to existing tags. Use the existing tag file as a guide and add or update tags as necessary. Please ONLY output the JSON data."""
     return prompt
 
-def get_tags_from_openai(prompt: str) -> str:
-    """Call the OpenAI API with the given prompt and return the response."""
-    openai.api_key = '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'
-    response = openai.Completion.create(model="gpt-4", prompt=prompt, max_tokens=500)
-    return response.choices[0].text.strip()
+def get_tags_from_openai(prompt):
+    role = f"""We are trying to categorize products listed on eBay based on their names. The goal is to create or update a tag file in JSON format that associates product tags with keywords found in product names. These tags are essential as they help us determine the price of the product. The tags are used for filtering entries into sub-categories. Use common sense. Products vary and you should decide what are the main tags that affect the price. A tag is a yes or no marker, either it exists or it doesn't. The keywords are used by an algorithm to apply tags to the dataset. There may be multiple keywords that show a product needs a tag e.g 'bundle', 'multiple', 'joblot' would all signify a tag of 'multiple products'. Please add tags that signify groupings of items. Please add tags that signal the item is not what we're looking for.  The delimiter is __ The format of the JSON is:
+
+{{
+    "Tag Name": ["keyword1", "keyword2", ...],
+    ...
+}}
+"""
+
+    messages = [
+        {"role": "system", "content": role},
+        {"role": "user", "content": prompt}
+    ]
+
+    response = openai.ChatCompletion.create(model="gpt-4", messages=messages, max_tokens=4000)
+    print(response)
+    return response.choices[0].message['content']
+
 
 def parse_llm_output(output: str) -> dict:
     """Extract JSON data from the LLM's verbose output."""

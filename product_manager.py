@@ -91,14 +91,16 @@ def load_products(search_string):
             loaded_dict = json.load(file)
             loaded_dicts.append(loaded_dict)
     
+    print("LOADING MULTIPLE PRODUCT BATCHES")
     return loaded_dicts
 
 def display_product_info(products, extra=False):
+
     """Print detailed information on specific products based on statistical criteria."""
     
-    c = CurrencyRates()
 
-    USD_TO_GBP_CONVERSION_RATE = c.get_rate('USD', 'GBP')
+    USD_TO_GBP_CONVERSION_RATE = 0.79
+        
     # Extract prices and compute statistics
     prices_in_usd = [float(product['price'].replace('$', '').replace('(USD)', '').replace('\xa0', ' ').strip()) for product in products]
     prices_in_gbp = [price * USD_TO_GBP_CONVERSION_RATE for price in prices_in_usd]
