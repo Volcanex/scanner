@@ -14,13 +14,6 @@ This repository contains a Python-based tool for analyzing and visualizing eBay 
 
 - Python 3.x
 - Required Python packages (install using `pip install -r requirements.txt`):
-  - requests
-  - beautifulsoup4
-  - numpy
-  - matplotlib
-  - scipy
-  - forex-python
-  - lxml
 
 ## Setup
 
@@ -44,7 +37,7 @@ openai.api_key = 'your-api-key-here'
 # Usage 
 
 ## Run the main script:
-python main.py
+_simplecontroller.py
 
 - Enter a search string when prompted e.g Ryzen 7 3700x or RTX 2070
 - Choose whether to load saved products or fetch new data.
@@ -55,7 +48,7 @@ python main.py
 
 ## Example output
 
-```bash
+```
 
 Enter search string (e.g. CPU): Ryzen 5 3600 
 Do you want to load saved products? (y/n): n
@@ -116,6 +109,8 @@ End Time: 0.01 hours
 ----------------------
 ...
 ```
+
+## Example plot
 
 ![Alt text](example.png)
 
