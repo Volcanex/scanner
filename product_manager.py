@@ -10,7 +10,8 @@ from forex_python.converter import CurrencyRates
 
 def sales(search_string):
     # Insert the search string into the URL
-    url = f"http://www.watchcount.com/completed.php?bkw={search_string.replace(' ', '+')}&bcat=0&bcts=&sfsb=Show+Me%21&csbin=all&cssrt=ts&bfw=1&bslr=&bnp=&bxp=150.00#serp"
+    max_price = "200"
+    url = f"http://www.watchcount.com/completed.php?bkw={search_string.replace(' ', '+')}&bcat=0&bcts=&sfsb=Show+Me%21&csbin=all&cssrt=ts&bfw=1&bslr=&bnp=&bxp={max_price}#serp"
     response = tools.grab(url)
     
     return response
