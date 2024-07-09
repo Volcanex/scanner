@@ -114,14 +114,6 @@ End Time: 0.01 hours
 
 ![Alt text](example.png)
 
-# File Structure
-
-- main.py: The main script that orchestrates the entire process.
-- product_manager.py: Handles product data fetching, parsing, and management.
-- datacleaning.py: Manages product tagging and tag file operations.
-- plotter.py: Contains functions for data visualization.
-- tools.py: Utility functions for web scraping and data handling.
-
 # Customization
 
 - Modify the tag file generation process in datacleaning.py to customize product categorization.
