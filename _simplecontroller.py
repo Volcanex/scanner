@@ -4,7 +4,7 @@ import plotter
 import datacleaning
 
 def old_main():
-    string = input("CPU: ")
+    string = input("CPU / Product: ")
     products = product_manager.new_search(string)
                                        
     print('PRODUCT LENGTH: '+str(len(products)))
@@ -67,7 +67,7 @@ def filter_products_by_tags(products):
     return products
 
 def main():
-    search_string = input("Enter search string (e.g., CPU): ")
+    search_string = input("Enter search string (e.g. CPU): ")
 
     # Load or fetch products
     products = load_or_fetch_products(search_string)
