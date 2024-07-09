@@ -1,4 +1,4 @@
-# eBay Product Analyzer
+# eBay Product Scanner
 
 This repository contains a Python-based tool for analyzing and visualizing eBay product data, with a focus on CPUs. The tool fetches product information, tags products, and provides insights through data analysis and visualization.
 
