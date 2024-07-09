@@ -2,7 +2,7 @@ import json
 import os
 import openai
 
-openai.api_key = os.getenv("OPEN_AI_API_KEY")
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def filter_products_based_on_condition(products, accepted_conditions):
     """
@@ -146,7 +146,10 @@ def update_and_save_tags(product_names: str, filename: str):
     prompt = create_prompt(product_names, existing_tag_file_str)
     
     # 3. Call the OpenAI API to get the updated tags
-    llm_output = get_tags_from_openai(prompt)
+    try:
+        llm_output = get_tags_from_openai(prompt)
+    except Exception as e:
+        print("LLM PARSE FAILED :"+str(e))
     
     # 4. Parse the returned data to extract the JSON
     updated_tags = parse_llm_output(llm_output)
