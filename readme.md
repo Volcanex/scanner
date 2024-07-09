@@ -4,9 +4,8 @@ This repository contains a Python-based tool for analyzing and visualizing eBay 
 
 ## Features
 
-- Fetch product data from eBay using the WatchCount API
-- Load and save product data locally
-- Tag products based on their names using customizable tag files
+- Scrape product data from eBay auction results
+- Tag products based on their names using customizable tag files, this eliminates bad examples
 - Filter products based on tags
 - Visualize price distribution of products
 - Compare products with CPU benchmark data
@@ -47,7 +46,7 @@ openai.api_key = 'your-api-key-here'
 ## Run the main script:
 python main.py
 
-- Enter a search string when prompted (e.g., "CPU").
+- Enter a search string when prompted e.g Ryzen 7 3700x or RTX 2070
 - Choose whether to load saved products or fetch new data.
 - The script will automatically check for an existing tag file, create one if it doesn't exist, and tag the products accordingly.
 - Choose whether to filter out products based on tags.
