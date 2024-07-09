@@ -4,7 +4,7 @@ import plotter
 import datacleaning
 
 def old_main():
-    string = input("CPU: ")
+    string = input("CPU / Product name: ")
     products = product_manager.new_search(string)
                                        
     print('PRODUCT LENGTH: '+str(len(products)))
