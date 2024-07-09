@@ -2,7 +2,7 @@ import json
 import os
 import openai
 
-openai.api_key = 'YOUR-API-KEY-HERE'
+openai.api_key = os.getenv("OPEN_AI_API_KEY")
 
 def filter_products_based_on_condition(products, accepted_conditions):
     """

@@ -2,3 +2,4 @@
 /logs
 /tag_files
 /__pycache__
+.env
