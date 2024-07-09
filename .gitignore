@@ -1,0 +1,4 @@
+.venv
+/logs
+/tag_files
+/__pycache__
