@@ -42,48 +42,7 @@ pip install -r requirements.txt
 ```python
 openai.api_key = 'your-api-key-here'
 ```
-
-Here's a README.md for the repository based on the provided code:
-markdownCopy# eBay Product Analyzer
-
-This repository contains a Python-based tool for analyzing and visualizing eBay product data, with a focus on CPUs. The tool fetches product information, tags products, and provides insights through data analysis and visualization.
-
-## Features
-
-- Fetch product data from eBay using the WatchCount API
-- Load and save product data locally
-- Tag products based on their names using customizable tag files
-- Filter products based on tags
-- Visualize price distribution of products
-- Compare products with CPU benchmark data
-
-## Prerequisites
-
-- Python 3.x
-- Required Python packages (install using `pip install -r requirements.txt`):
-  - requests
-  - beautifulsoup4
-  - numpy
-  - matplotlib
-  - scipy
-  - forex-python
-  - lxml
-
-## Setup
-
-1. Clone the repository:
-git clone https://github.com/yourusername/ebay-product-analyzer.git
-cd ebay-product-analyzer
-Copy
-2. Install the required packages:
-pip install -r requirements.txt
-Copy
-3. Set up your OpenAI API key in the `datacleaning.py` file:
-```python
-openai.api_key = 'your-api-key-here'
-```
-
-# Usage
+# Usage 
 
 ## Run the main script:
 python main.py
